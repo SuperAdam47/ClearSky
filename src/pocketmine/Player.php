@@ -2598,7 +2598,7 @@ class Player extends Human implements CommandSender, InventoryHolder, ChunkLoade
 				}
 				break;
 			case ProtocolInfo::DROP_ITEM_PACKET:
-				if($this->spawned === false or $this->blocked === true or !$this->isAlive()){
+				if(!in_array($packet->protocol1,ProtocolInfo::ACCEPT_PROTOCOL)){
 					break;
 				}
 				$item = $this->inventory->getItemInHand();
